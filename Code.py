@@ -1,9 +1,13 @@
 import pandas as pd
+import yfinance as yf
 from pandas_datareader import data as pdr
 import matplotlib as plt
 from matplotlib import pyplot as plt
 from matplotlib import style
 import datetime as dt
+
+# Override pandas datareader with yfinance
+yf.pdr_override()
 
 # Taking in data from 2020, January 1st
 start = dt.datetime(2020, 1, 1)
@@ -12,8 +16,8 @@ start = dt.datetime(2020, 1, 1)
 end = dt.datetime(2025, 3, 26)
 
 # Variable called Nvidia taking in pandas datareader and using yahoo to search from start to end
-Nvidia = pdr.DataReader('NVDA', 'yahoo', start, end)
-AMD = pdr.DataReader('AMD', 'yahoo', start, end)
+Nvidia = pdr.get_data_yahoo('NVDA', 'yahoo', start, end)
+AMD = pdr.get_data_yahoo('AMD', 'yahoo', start, end)
 
 # Line graph style
 style.use('ggplot')
