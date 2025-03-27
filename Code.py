@@ -29,5 +29,6 @@ plt.legend(loc='lower right')
 plt.xlabel('Date', fontsize=15)
 plt.ylabel('Price in USD', fontsize=15)
 
+plt.grid(color = 'black', linestyle = '--', linewidth = 1)
 # Show line graph
 plt.show()
